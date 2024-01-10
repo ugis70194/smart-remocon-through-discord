@@ -9,7 +9,7 @@ def send_signal(id: str):
   subprocess.run(["python3", "./_irrp.py", "-p", "-g17", "-f", "./codes", id])
 
 def reserve_signal(id: str, hour: int, minute: int):
-  command = f"python3 ./_irrp.py -p -g17 -f ./codes {id}"
+  command = f"python3 /home/pi/smart-remocon/_irrp.py -p -g17 -f ./codes {id}"
   subprocess.run(f'echo {command} | at {hour}:{minute}')
 
 load_dotenv(".env")
