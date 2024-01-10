@@ -1,11 +1,16 @@
 import discord
 import os
 import subprocess
+import datetime
 from time import sleep
 from dotenv import load_dotenv
 
 def send_signal(id: str):
   subprocess.run(["python3", "./_irrp.py", "-p", "-g17", "-f", "./codes", id])
+
+def reserve_signal(id: str, hour: int, minute: int):
+  command = f"python3 ./_irrp.py -p -g17 -f ./codes {id}"
+  subprocess.run(f'echo {command} | at {hour}:{minute}')
 
 load_dotenv(".env")
 
@@ -32,12 +37,17 @@ async def on_message(message):
       send_signal("light:toggle")
   elif command[0] == "aircon":
     if command[1] == "cool":
-      send_signal("aircon:cool")
+      if command[2] == "reserve":
+        reserve_signal("aircon:cool", command[3], command[4])
+      else:
+        send_signal("aircon:cool")
     elif command[1] == "warm":
-      send_signal("aircon:warm")
+      if command[2] == "reserve":
+        reserve_signal("aircon:warm", command[3], command[4])
+      else:
+        send_signal("aircon:warm")
     elif command[1] == "off":
       send_signal("aircon:off")
-    pass
   else:
     pass
 
