@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 def send_signal(id: str):
   subprocess.run(["python3", "./_irrp.py", "-p", "-g17", "-f", "./codes", id])
 
-def reserve_signal(id: str, hour: int, minute: int):
+def reserve_signal(id: str, hour: str, minute: str):
   command = f"python3 /home/pi/smart-remocon/_irrp.py -p -g17 -f ./codes {id}"
   subprocess.run(f'echo {command} | at {hour}:{minute}')
 
@@ -37,13 +37,13 @@ async def on_message(message):
       send_signal("light:toggle")
   elif command[0] == "aircon":
     if command[1] == "cool":
-      if command[2] == "reserve":
-        reserve_signal("aircon:cool", command[3], command[4])
+      if command[3] == "reserve":
+        reserve_signal("aircon:cool", command[4], command[5])
       else:
         send_signal("aircon:cool")
     elif command[1] == "warm":
-      if command[2] == "reserve":
-        reserve_signal("aircon:warm", command[3], command[4])
+      if command[3] == "reserve":
+        reserve_signal("aircon:warm", command[4], command[5])
       else:
         send_signal("aircon:warm")
     elif command[1] == "off":
