@@ -1,0 +1,11 @@
+[Unit]
+Description=Load dump capture kernel
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/python /home/pi/smart-remocon/bot.py
+
+[Install]
+WantedBy=multi-user.target
