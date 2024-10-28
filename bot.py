@@ -1,7 +1,7 @@
 import discord
 import os
 from dotenv import load_dotenv
-from Light import Light
+from modules.Light import Light
 
 load_dotenv(".env")
 
@@ -32,6 +32,8 @@ async def on_message(message):
     elif command[1] == "toDark":   light.toDark()
     elif command[1] == "toWarm":   light.toWarm()
     elif command[1] == "toCool":   light.toCool()
+    elif command[1] == "full":     light.full()
+    elif command[1] == "reset":    light.reset()
   elif command[0] == "aircon":
     pass
 
