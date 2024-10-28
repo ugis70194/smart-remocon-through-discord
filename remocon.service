@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=pi
-ExecStart=/usr/bin/python /home/pi/smart-remocon/bot.py
+ExecStart=/usr/bin/python /home/pi/remocon/bot.py
 
 [Install]
 WantedBy=multi-user.target
