@@ -1,6 +1,6 @@
 from enum import Enum
 from collections import deque
-from utils import send_signal, reserve_signal
+from modules.utils import send_signal, reserve_signal
 
 class State(Enum):
   OFF = 0
@@ -95,6 +95,9 @@ class Light:
   def full(self):
     self.__init__()
     send_signal("light:full")
+
+  def reset(self):
+    self.__init__()
     
   def show(self):
     return (self.state, self.brightness, self.temperature, self.command_que)
