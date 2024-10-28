@@ -1,0 +1,12 @@
+30 18 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+0 19 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+30 19 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+0 20 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+30 20 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+45 20 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+0 21 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+15 21 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+30 21 * * * /usr/bin/python3 /home/pi/remocon/scripts/dark.py
+45 21 * * * /usr/bin/python3 /home/pi/remocon/scripts/warm.py
+0 22 * * * /usr/bin/python3 /home/pi/remocon/scripts/warm.py
+0 2 * * * /usr/bin/python3 /home/pi/remocon/scripts/reset.py
