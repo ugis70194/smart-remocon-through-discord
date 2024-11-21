@@ -32,7 +32,7 @@ jobs:
         python -m pytest -v tests/test_Aircon.py
     - name: check env
       run: |
-        echo $ANYO
+        echo "$ANYO"
       env:
         ANYO: ${{ vars.anyo }}
     - name: Test messenger module with pytest
