@@ -34,9 +34,9 @@ jobs:
       run: |
         echo "$ANYO"
       env:
-        ANYO: ${{ vars.anyo }}
+        ANYO: ${{ env.anyo }}
     - name: Test messenger module with pytest
       run: |
         python -m pytest -v tests/test_messenger.py
       env:
-        WEBHOOK: ${{ secrets.WEBHOOK }}
+        WEBHOOK: ${{ secrets.env.WEBHOOK }}
