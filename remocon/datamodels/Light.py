@@ -1,7 +1,7 @@
 from collections import deque
 from enum import Enum
 
-from src.modules.utils import send_signal
+from ..utils.signal import send_signal
 
 
 class State(Enum):

@@ -1,6 +1,6 @@
 from collections import deque
 
-from src.modules.Light import Light, State
+from remocon.datamodels.Light import Light, State
 
 light = Light()
 
