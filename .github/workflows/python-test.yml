@@ -30,3 +30,8 @@ jobs:
     - name: Test Aircon module with pytest
       run: |
         python -m pytest -v tests/test_Aircon.py
+    - name: Test messenger module with pytest
+      run: |
+        python -m pytest -v tests/test_messenger.py
+      env:
+        WEBHOOK: ${{ secrets.WEBHOOK }}
