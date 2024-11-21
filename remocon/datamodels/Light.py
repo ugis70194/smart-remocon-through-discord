@@ -1,5 +1,6 @@
 from collections import deque
 from enum import Enum
+from time import sleep
 
 from ..utils.signal import send_signal
 
@@ -32,10 +33,12 @@ class Light:
         while len(self.command_que) > 0:
             cmd = self.command_que.pop()
             send_signal(cmd)
+            sleep(0.2)
 
     def off(self):
         if self.state == State.ON:
             send_signal("light:toggle")
+            sleep(0.2)
             send_signal("light:toggle")
         elif self.state == State.night:
             send_signal("light:toggle")
@@ -51,6 +54,7 @@ class Light:
             pass
         elif self.state == State.OFF:
             send_signal("light:toggle")
+            sleep(0.2)
             send_signal("light:toggle")
 
         self.state = State.night

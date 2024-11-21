@@ -2,12 +2,13 @@ if __name__ == "__main__":
     import os
 
     import discord
+    from datamodels.Aircon import Aircon, State
+    from datamodels.Light import Light
     from dotenv import load_dotenv
-    from modules.Light import Light
 
     load_dotenv(".env")
 
-    TOKEN = os.getenv("TOKEN")
+    TOKEN = os.getenv("DISCORD_TOKEN")
 
     intents = discord.Intents.default()
     intents.message_content = True
@@ -15,15 +16,17 @@ if __name__ == "__main__":
     client = discord.Client(intents=intents)
 
     light = Light()
+    aircon = Aircon()
 
-    """
     @client.event
     async def on_message(message):
         if message.author == client.user:
             return
 
         command = message.content.split("_")
-        if not (command[0] == "light" or command[0] == "aircon" or command[0] == "cleaner"):
+        if not (
+            command[0] == "light" or command[0] == "aircon" or command[0] == "cleaner"
+        ):
             return
 
         if command[0] == "light":
@@ -46,7 +49,21 @@ if __name__ == "__main__":
             elif command[1] == "reset":
                 light.reset()
         elif command[0] == "aircon":
-            pass
-          
-        client.run(TOKEN)
-    """
+            if command[1] == "cool":
+                aircon.cool()
+            elif command[1] == "warm":
+                aircon.warm()
+            elif command[1] == "off":
+                aircon.off()
+            elif command[1] == "down":
+                if aircon.state == State.COOL:
+                    aircon.tempDown_cool()
+                elif aircon.state == State.WARM:
+                    aircon.tempDown_warm()
+            elif command[1] == "up":
+                if aircon.state == State.COOL:
+                    aircon.tempUp_cool()
+                elif aircon.state == State.WARM:
+                    aircon.tempUp_warm()
+
+    client.run(TOKEN)

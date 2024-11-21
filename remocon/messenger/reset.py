@@ -4,12 +4,19 @@ from os import getenv
 
 from dotenv import load_dotenv
 
-load_dotenv()
-WEBHOOK = getenv("WEBHOOK")
 
-headers = {"Content-Type": "application/json"}
-body = json.dumps({"content": "light_reset"}).encode("utf-8")
+def reset():
+    load_dotenv()
+    WEBHOOK = getenv("WEBHOOK")
 
-conn = http.client.HTTPSConnection("discord.com")
-conn.request("POST", WEBHOOK, body, headers)
-res = conn.getresponse()
+    headers = {"Content-Type": "application/json"}
+    body = json.dumps({"content": "light_reset"}).encode("utf-8")
+
+    conn = http.client.HTTPSConnection("discord.com")
+    conn.request("POST", WEBHOOK, body, headers)
+    res = conn.getresponse()
+    return res.status
+
+
+if __name__ == "__main__":
+    reset()

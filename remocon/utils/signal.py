@@ -9,14 +9,12 @@ PROJECT_PATH = os.getenv("PROJECT_PATH")
 PB_GPIO = os.getenv("PB_GPIO")
 PB_FILE = os.getenv("PB_FILE")
 
-print(PB_GPIO)
-
 
 def send_signal(id: str) -> None:
     """信号を送信する
 
     Args:
-      - id (str): 信号の名前
+        - id (str): 信号の名前
     """
     subprocess.run(
         [
