@@ -12,6 +12,8 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment:
+      name: test
 
     steps:
     - uses: actions/checkout@v4
@@ -39,4 +41,4 @@ jobs:
       run: |
         python -m pytest -v tests/test_messenger.py
       env:
-        WEBHOOK: ${{ env.WEBHOOK }}
+        WEBHOOK: ${{ secrets.WEBHOOK }}
