@@ -30,6 +30,11 @@ jobs:
     - name: Test Aircon module with pytest
       run: |
         python -m pytest -v tests/test_Aircon.py
+    - name: check env
+      run: |
+        echo $ANYO
+      env:
+        ANYO: ${{ vars.anyo }}
     - name: Test messenger module with pytest
       run: |
         python -m pytest -v tests/test_messenger.py
