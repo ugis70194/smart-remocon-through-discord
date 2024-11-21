@@ -8,7 +8,7 @@ load_dotenv()
 WEBHOOK = getenv("WEBHOOK")
 
 headers = {"Content-Type": "application/json"}
-body = json.dumps({"content": "light_toDark"}).encode("utf-8")
+body = json.dumps({"content": "light_full"}).encode("utf-8")
 
 conn = http.client.HTTPSConnection("discord.com")
 conn.request("POST", WEBHOOK, body, headers)
