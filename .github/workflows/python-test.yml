@@ -3,8 +3,6 @@ name: test
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -32,11 +30,6 @@ jobs:
     - name: Test Aircon module with pytest
       run: |
         python -m pytest -v tests/test_Aircon.py
-    - name: check env
-      run: |
-        echo "$ANYO"
-      env:
-        ANYO: ${{ env.anyo }}
     - name: Test messenger module with pytest
       run: |
         python -m pytest -v tests/test_messenger.py

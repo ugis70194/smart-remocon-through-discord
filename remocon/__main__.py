@@ -2,9 +2,10 @@ if __name__ == "__main__":
     import os
 
     import discord
-    from datamodels.Aircon import Aircon, State
-    from datamodels.Light import Light
     from dotenv import load_dotenv
+
+    from remocon.datamodels.Aircon import Aircon, State
+    from remocon.datamodels.Light import Light
 
     load_dotenv(".env")
 
