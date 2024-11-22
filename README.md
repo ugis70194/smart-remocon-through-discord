@@ -9,6 +9,14 @@
 iosアプリのショートカットからHTTPリクエストを送信する。  
 送信するメッセージの内容を事前に登録しておくことでワンタップで諸々の操作が可能。
 
+## 初期化
+
+1. `remocon/` 以下を raspberrypi 上にコピー
+2. 必要な赤外線信号を irrp.py を使って登録
+3. 必要な環境変数を `.env` に入力
+4. crontab に自動化したい操作を記入
+5. systemctl に remocon.service を登録して、service を起動する
+
 ## 詳細
 
 raspberryPi Zero 上には赤外線送受信回路を実装されている。  
